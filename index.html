@@ -407,13 +407,18 @@
       const main = document.querySelector('main');
       const footer = document.querySelector('footer');
 
-      // Ocultar sidebar por defecto en pantallas pequeñas
-      if (window.innerWidth <= 768) {
-        sidebar.style.display = 'none';
-        sidebar.classList.add('hidden');
-        main.style.marginLeft = '0';
-        footer.style.marginLeft = '0';
-      }
+    // Al cargar la página, mostrar el sidebar en pantallas anchas, ocultarlo en móviles
+    if (window.innerWidth > 768) {
+      sidebar.style.display = 'block';
+      sidebar.classList.remove('hidden');
+      main.style.marginLeft = '320px';
+      footer.style.marginLeft = '320px';
+    } else {
+      sidebar.style.display = 'none';
+      sidebar.classList.add('hidden');
+      main.style.marginLeft = '0';
+      footer.style.marginLeft = '0';
+    }
 
       toggleBtn.addEventListener('click', function() {
         if(sidebar.style.display === 'none' || sidebar.classList.contains('hidden')){

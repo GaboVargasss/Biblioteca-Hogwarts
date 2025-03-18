@@ -476,3 +476,18 @@
     margin-left: 0 !important;
   }
 }
+
+@media (max-width: 768px) {
+  /* Permite que .header-content haga wrap y centre elementos */
+  .header-content {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Quita position absolute del botón "Mas info" para que no se monte */
+  .toggle-sidebar {
+    position: static !important;
+    margin: 0 auto !important;
+  }
+}
+
