@@ -151,7 +151,11 @@
   background: #2c1b0f;
   padding: 0 20px 20px 20px;
   border-right: 5px solid #3A1F0B;
-  overflow-y: auto;
+  font-size: 0.95rem;      /* Ajusta la fuente para evitar scroll horizontal */
+  white-space: normal;     /* Permite que el texto haga salto de línea */
+  overflow-x: hidden;      /* Quita scroll horizontal */
+  overflow-y: auto;        /* Mantén scroll vertical si excede en altura */
+  
 }
   
   /* Oculto cuando se hace click en "Mas info" */
@@ -525,6 +529,7 @@
     border-bottom: 5px solid #3A1F0B;
     margin-bottom: 10px;
     padding: 10px;
+    font-size: 0.9rem;
   }
 
   /* Que cada sección del sidebar sea un bloque horizontal */
@@ -535,12 +540,46 @@
     vertical-align: top;
   }
 
-  /* Quitar desplazamiento de main */
-  main {
+  /* Quitar desplazamiento de main y footer en pantallas chicas */
+  main, footer {
     margin-left: 0 !important;
   }
-  footer {
-    margin-left: 0 !important;
+
+  /* Evita que la hero se trunque */
+  .hero {
+    min-height: 80vh !important;
+    background-size: cover !important;
   }
 }
+
+@media (max-width: 1050px) {
+  /* Permite que .header-content se parta en dos filas */
+  .header-content {
+    flex-wrap: wrap;
+  }
+
+  /* El botón "Mas info" se ubica en la primera fila, centrado */
+  .toggle-sidebar {
+    width: 100%;
+    justify-content: center;
+    order: 1;
+    margin: 10px 0;
+  }
+
+  /* El bloque con logo y título pasa a la segunda fila */
+  .logo-container {
+    order: 2;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  /* El nav con menús y buscador pasa también a la segunda fila */
+  nav {
+    order: 3;
+    width: 100%;
+    text-align: center;
+  }
+}
+
 

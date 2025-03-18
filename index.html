@@ -420,10 +420,9 @@
         footer.style.marginLeft = '0';
       }
 
-    toggleBtn.addEventListener('click', function() {
-  // Detectar ancho de pantalla
+      toggleBtn.addEventListener('click', function() {
   if (window.innerWidth > 768) {
-    // Pantallas grandes: sidebar vertical, desplaza main y footer
+    // Pantallas grandes: sidebar vertical
     if(sidebar.style.display === 'none' || sidebar.classList.contains('hidden')){
       sidebar.style.display = 'block';
       sidebar.classList.remove('hidden');
@@ -436,7 +435,7 @@
       footer.style.marginLeft = '0';
     }
   } else {
-    // Pantallas pequeñas: sidebar horizontal, no desplaza main ni footer
+    // Pantallas pequeñas: sidebar horizontal
     if(sidebar.style.display === 'none' || sidebar.classList.contains('hidden')){
       sidebar.style.display = 'flex';
       sidebar.classList.remove('hidden');
@@ -446,6 +445,7 @@
     }
   }
 });
+
     });
   </script>
 </body>
