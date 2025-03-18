@@ -141,23 +141,18 @@
     color: #000; /* Negro */
   }
   
-  /* Barra lateral: fondo #2c1b0f, borde color madera oscuro */
-  #sidebar {
-    position: absolute;
-    top: 80px;  /* Debajo del header, pero antes del resto */
-    left: 0;
-    right: 0;   /* Para que ocupe todo el ancho */
-    height: 220px; /* Alto deseado para el contenedor horizontal */
-    background: #2c1b0f;
-    display: none; /* Se mostrará al pulsar "Mas info" */
-    flex-direction: row; /* Distribución horizontal */
-    align-items: flex-start;
-    overflow-x: auto; /* Scroll horizontal */
-    overflow-y: hidden;
-    padding: 20px;
-    border-bottom: 5px solid #3A1F0B; /* Borde en la parte inferior */
-    z-index: 1000; /* Para que aparezca sobre el contenido */
-  }
+/* Sidebar vertical en pantallas grandes */
+#sidebar {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  bottom: 0;
+  width: 320px;
+  background: #2c1b0f;
+  padding: 0 20px 20px 20px;
+  border-right: 5px solid #3A1F0B;
+  overflow-y: auto;
+}
   
   /* Oculto cuando se hace click en "Mas info" */
   #sidebar.hidden {
@@ -226,12 +221,13 @@
   /* Sección Hero con imagen de fondo difuminada */
   .hero {
     position: relative;
-    height: 80vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     background: url("https://th.bing.com/th/id/R.471019acc07c92f61f26f3e1c3debc89?rik=Jmxi9qBC545%2fPQ&pid=ImgRaw&r=0") no-repeat center center/cover;
+    background-size: cover;
   }
   
   .hero-overlay {
@@ -514,3 +510,37 @@
     display: none !important;
   }
 }
+
+@media (max-width: 768px) {
+  /* Sidebar horizontal y no desplaza contenido */
+  #sidebar {
+    position: static;        /* Lo sacamos del flujo fijo */
+    width: 100%;
+    height: auto;
+    display: none;           /* Se mostrará con display:flex en JS */
+    flex-direction: row;     /* Horizontal */
+    overflow-x: auto;        /* Scroll horizontal */
+    overflow-y: hidden;      /* Sin scroll vertical */
+    border-right: none;      /* En vez de borde derecho, borde abajo */
+    border-bottom: 5px solid #3A1F0B;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+
+  /* Que cada sección del sidebar sea un bloque horizontal */
+  .sidebar-section {
+    display: inline-block;
+    min-width: 300px;
+    margin-right: 20px;
+    vertical-align: top;
+  }
+
+  /* Quitar desplazamiento de main */
+  main {
+    margin-left: 0 !important;
+  }
+  footer {
+    margin-left: 0 !important;
+  }
+}
+

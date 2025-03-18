@@ -407,8 +407,24 @@
       const main = document.querySelector('main');
       const footer = document.querySelector('footer');
 
-    // Al cargar la página, mostrar el sidebar en pantallas anchas, ocultarlo en móviles
-    if (window.innerWidth > 768) {
+      // Al cargar, mostrar sidebar vertical en pantallas grandes, oculto en pequeñas
+      if (window.innerWidth > 768) {
+        sidebar.style.display = 'block';
+        sidebar.classList.remove('hidden');
+        main.style.marginLeft = '320px';
+        footer.style.marginLeft = '320px';
+      } else {
+        sidebar.style.display = 'none';
+        sidebar.classList.add('hidden');
+        main.style.marginLeft = '0';
+        footer.style.marginLeft = '0';
+      }
+
+    toggleBtn.addEventListener('click', function() {
+  // Detectar ancho de pantalla
+  if (window.innerWidth > 768) {
+    // Pantallas grandes: sidebar vertical, desplaza main y footer
+    if(sidebar.style.display === 'none' || sidebar.classList.contains('hidden')){
       sidebar.style.display = 'block';
       sidebar.classList.remove('hidden');
       main.style.marginLeft = '320px';
@@ -419,18 +435,17 @@
       main.style.marginLeft = '0';
       footer.style.marginLeft = '0';
     }
-
-      toggleBtn.addEventListener('click', function() {
-    // Si está oculto, muéstralo como un contenedor horizontal
-    if (sidebar.classList.contains('hidden') || sidebar.style.display === 'none') {
-      sidebar.classList.remove('hidden');
+  } else {
+    // Pantallas pequeñas: sidebar horizontal, no desplaza main ni footer
+    if(sidebar.style.display === 'none' || sidebar.classList.contains('hidden')){
       sidebar.style.display = 'flex';
+      sidebar.classList.remove('hidden');
     } else {
-      // De lo contrario, lo ocultamos
-      sidebar.classList.add('hidden');
       sidebar.style.display = 'none';
+      sidebar.classList.add('hidden');
     }
-  });
+  }
+});
     });
   </script>
 </body>
