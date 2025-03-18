@@ -421,18 +421,16 @@
     }
 
       toggleBtn.addEventListener('click', function() {
-        if(sidebar.style.display === 'none' || sidebar.classList.contains('hidden')){
-          sidebar.style.display = 'block';
-          sidebar.classList.remove('hidden');
-          main.style.marginLeft = '320px';
-          footer.style.marginLeft = '320px';
-        } else {
-          sidebar.style.display = 'none';
-          sidebar.classList.add('hidden');
-          main.style.marginLeft = '0';
-          footer.style.marginLeft = '0';
-        }
-      });
+    // Si está oculto, muéstralo como un contenedor horizontal
+    if (sidebar.classList.contains('hidden') || sidebar.style.display === 'none') {
+      sidebar.classList.remove('hidden');
+      sidebar.style.display = 'flex';
+    } else {
+      // De lo contrario, lo ocultamos
+      sidebar.classList.add('hidden');
+      sidebar.style.display = 'none';
+    }
+  });
     });
   </script>
 </body>

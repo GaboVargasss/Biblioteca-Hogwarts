@@ -143,15 +143,20 @@
   
   /* Barra lateral: fondo #2c1b0f, borde color madera oscuro */
   #sidebar {
-    position: fixed;
-    top: 80px;
+    position: absolute;
+    top: 80px;  /* Debajo del header, pero antes del resto */
     left: 0;
-    bottom: 0;
-    width: 320px; 
-    background: #2c1b0f; /* Color de fondo del sidebar */
-    padding: 0 20px 20px 20px;
-    border-right: 5px solid #3A1F0B; /* Borde madera oscuro */
-    overflow-y: auto;
+    right: 0;   /* Para que ocupe todo el ancho */
+    height: 220px; /* Alto deseado para el contenedor horizontal */
+    background: #2c1b0f;
+    display: none; /* Se mostrará al pulsar "Mas info" */
+    flex-direction: row; /* Distribución horizontal */
+    align-items: flex-start;
+    overflow-x: auto; /* Scroll horizontal */
+    overflow-y: hidden;
+    padding: 20px;
+    border-bottom: 5px solid #3A1F0B; /* Borde en la parte inferior */
+    z-index: 1000; /* Para que aparezca sobre el contenido */
   }
   
   /* Oculto cuando se hace click en "Mas info" */
@@ -491,3 +496,21 @@
   }
 }
 
+/* Distribución horizontal de cada sección dentro del sidebar */
+.sidebar-section {
+  min-width: 300px;  /* Ajusta según necesites */
+  margin-right: 20px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+@media (max-width: 768px) {
+  /* Ocultar sidebar por defecto en móvil */
+  #sidebar {
+    display: none !important;
+    height: auto !important;
+  }
+  #sidebar.hidden {
+    display: none !important;
+  }
+}
