@@ -422,8 +422,8 @@
 
       toggleBtn.addEventListener('click', function() {
   if (window.innerWidth > 768) {
-    // Pantallas grandes: sidebar vertical
-    if(sidebar.style.display === 'none' || sidebar.classList.contains('hidden')){
+    // Pantallas grandes: sidebar vertical, desplaza main y footer
+    if(sidebar.style.display === 'none' || sidebar.classList.contains('hidden')) {
       sidebar.style.display = 'block';
       sidebar.classList.remove('hidden');
       main.style.marginLeft = '320px';
@@ -435,8 +435,8 @@
       footer.style.marginLeft = '0';
     }
   } else {
-    // Pantallas pequeñas: sidebar horizontal
-    if(sidebar.style.display === 'none' || sidebar.classList.contains('hidden')){
+    // Pantallas pequeñas: sidebar horizontal, no desplaza
+    if(sidebar.style.display === 'none' || sidebar.classList.contains('hidden')) {
       sidebar.style.display = 'flex';
       sidebar.classList.remove('hidden');
     } else {
@@ -444,8 +444,7 @@
       sidebar.classList.add('hidden');
     }
   }
-});
-
+  });
     });
   </script>
 </body>

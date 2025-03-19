@@ -149,13 +149,11 @@
   bottom: 0;
   width: 320px;
   background: #2c1b0f;
-  padding: 0 20px 20px 20px;
-  border-right: 5px solid #3A1F0B;
-  font-size: 0.95rem;      /* Ajusta la fuente para evitar scroll horizontal */
-  white-space: normal;     /* Permite que el texto haga salto de línea */
-  overflow-x: hidden;      /* Quita scroll horizontal */
-  overflow-y: auto;        /* Mantén scroll vertical si excede en altura */
-  
+  /* Evita scroll horizontal y centra contenido */
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 20px;
+  font-size: 0.95rem;  /* Ajuste para evitar que la letra se haga muy grande */
 }
   
   /* Oculto cuando se hace click en "Mas info" */
@@ -179,7 +177,9 @@
   
   /* Secciones del sidebar */
   .sidebar-section {
-    margin-top: 20px;
+    margin: 20px auto;   /* margen automático a los costados */
+    max-width: 90%;      /* para que no choque con los bordes */
+    text-align: center;
   }
   
   .section-title {
@@ -516,49 +516,56 @@
 }
 
 @media (max-width: 768px) {
-  /* Sidebar horizontal y no desplaza contenido */
+  /* Sidebar horizontal: se muestra debajo del primer encabezado */
   #sidebar {
-    position: static;        /* Lo sacamos del flujo fijo */
+    position: static;      /* sale del flujo fijo */
     width: 100%;
     height: auto;
-    display: none;           /* Se mostrará con display:flex en JS */
-    flex-direction: row;     /* Horizontal */
-    overflow-x: auto;        /* Scroll horizontal */
-    overflow-y: hidden;      /* Sin scroll vertical */
-    border-right: none;      /* En vez de borde derecho, borde abajo */
+    display: none;         /* se mostrará con display: flex en JS */
+    flex-direction: row;   /* modo horizontal */
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-right: none;
     border-bottom: 5px solid #3A1F0B;
     margin-bottom: 10px;
     padding: 10px;
-    font-size: 0.9rem;
+    font-size: 0.9rem;     /* reduce fuente en móvil */
   }
 
-  /* Que cada sección del sidebar sea un bloque horizontal */
+  /* Secciones del sidebar en línea */
   .sidebar-section {
     display: inline-block;
-    min-width: 300px;
-    margin-right: 20px;
+    min-width: 280px;
+    margin: 0 20px;
     vertical-align: top;
+    text-align: center;
   }
 
-  /* Quitar desplazamiento de main y footer en pantallas chicas */
+  /* Quitar desplazamiento en main y footer */
   main, footer {
     margin-left: 0 !important;
   }
 
-  /* Evita que la hero se trunque */
+  /* Hero: evita que se trunque */
   .hero {
-    min-height: 80vh !important;
+    min-height: 70vh !important;
     background-size: cover !important;
+  }
+  .hero-content h2 {
+    font-size: 2rem !important; /* reduce título */
+  }
+  .hero-content p {
+    font-size: 1rem !important; /* reduce párrafo */
   }
 }
 
 @media (max-width: 1050px) {
-  /* Permite que .header-content se parta en dos filas */
+  /* Forzamos que .header-content se parta en 2 filas */
   .header-content {
     flex-wrap: wrap;
   }
 
-  /* El botón "Mas info" se ubica en la primera fila, centrado */
+  /* Fila 1: Botón "Mas info" centrado */
   .toggle-sidebar {
     width: 100%;
     justify-content: center;
@@ -566,7 +573,7 @@
     margin: 10px 0;
   }
 
-  /* El bloque con logo y título pasa a la segunda fila */
+  /* Fila 2: Logo + Hogwarts & Books y menús */
   .logo-container {
     order: 2;
     width: 100%;
@@ -574,12 +581,9 @@
     margin-bottom: 10px;
   }
 
-  /* El nav con menús y buscador pasa también a la segunda fila */
   nav {
     order: 3;
     width: 100%;
     text-align: center;
   }
 }
-
-
