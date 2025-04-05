@@ -3,66 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hogwarts & Books - Inicio</title>
+  <title>Hogwarts & Books - Contáctanos 💌</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&family=MedievalSharp&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
   <!-- Custom CSS -->
   <style>
-    html, body { overflow-x: hidden; }
-    /* General */
+    html, body { 
+      overflow-x: hidden; 
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    /* Fondo animado (sin alterar la paleta) */
     body {
       background-color: #121212;
       color: #f1f1f1;
       font-family: 'Montserrat', sans-serif;
+      /* Imagen de fondo sutil, con opacidad y animación de desplazamiento */
+      background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+      animation: moveBackground 30s linear infinite;
     }
-    a { text-decoration: none; }
+    @keyframes moveBackground {
+      from { background-position: 0 0; }
+      to { background-position: 1000px 1000px; }
+    }
     /* Header */
     header, .navbar {
       background: #2C1B0F;
       min-height: 100px;
       border-bottom: 2px solid #3A1F0B;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.7);
     }
     .navbar-brand {
       font-family: 'Playfair Display', serif;
       font-size: 1.8rem;
-      color: #D2B48C !important;  /* Café suave */
+      color: #D2B48C !important;
     }
     .nav-link {
       font-family: 'Playfair Display', serif;
       color: #D2B48C !important;
       margin-left: 10px;
+      transition: color 0.3s ease;
+    }
+    .nav-link:hover {
+      color: #F4A460 !important;
     }
     .nav-icon {
       width: 25px;
       height: 25px;
       margin-right: 5px;
     }
-    /* Hero Section */
-    .hero {
-      background: url('https://th.bing.com/th/id/R.471019acc07c92f61f26f3e1c3debc89?rik=Jmxi9qBC545%2fPQ&pid=ImgRaw&r=0') no-repeat center center;
-      background-size: cover;
-      position: relative;
-      min-height: 80vh;
+    h2, h3 {
+      font-family: 'MedievalSharp', serif;
     }
-    .hero::before {
-      content: "";
-      position: absolute;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      background: rgba(0,0,0,0.4);
+    .section-title {
+      border-bottom: 1px solid #3A1F0B;
+      padding-bottom: 5px;
+      color: #9A4C10;
+      margin-bottom: 15px;
     }
-    .hero-content { position: relative; z-index: 1; }
+    /* Tarjeta para el formulario con un toque extra */
+    .card-form {
+      background: #1e1e1e;
+      border: 1px solid #3A1F0B;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+    }
+    .card-form:hover {
+      transform: scale(1.02);
+    }
+    .form-control, .form-control:focus, textarea {
+      background: #222;
+      border: 1px solid #333;
+      color: #f1f1f1;
+      transition: border-color 0.3s ease;
+    }
+    .form-control:focus {
+      border-color: #9A4C10;
+    }
+    label {
+      font-weight: bold;
+    }
     .btn-custom {
       background: #444;
       color: #f1f1f1;
       border: none;
+      transition: background 0.3s ease;
     }
     .btn-custom:hover { background: #666; }
-    /* Footer */
     footer {
       background: #2C1B0F;
       text-align: center;
@@ -71,6 +103,14 @@
       border-top: 2px solid #3A1F0B;
       margin-top: 30px;
     }
+    /* Agregar un efecto de entrada para el contenido principal */
+    .container {
+      animation: fadeIn 1s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
@@ -78,36 +118,35 @@
   <header>
     <nav class="navbar navbar-expand-lg">
       <div class="container">
-        <a class="navbar-brand" href="index.html">Hogwarts & Books</a>
+        <a class="navbar-brand" href="index.html">Hogwarts & Books ✨</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto align-items-center">
-            <!-- Cada enlace incluye el ícono original a la izquierda -->
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center" href="masinfo.html">
                 <img src="https://th.bing.com/th/id/R.949bcc9d07186366acede8d82db5522f?rik=A%2fFe4dkZJdCAZg&pid=ImgRaw&r=0" alt="Gryffindor" class="nav-icon">
-                Más info
+                Más info 
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center" href="libros.html">
                 <img src="https://th.bing.com/th/id/R.2abc4c00c8a58d759b752abf54bfd14b?rik=h7SrxwN5n9%2fwFw&riu=http%3a%2f%2fvignette1.wikia.nocookie.net%2fharryalbuspotter%2fimages%2f4%2f45%2fSlytherin_by_melisarodriguez-d47ly0k.png%2frevision%2flatest%3fcb%3d20140621170234&ehk=HVLZP9tOwtDLF8%2bN6Oz2wMPdehMFrjiOohCOCduWeew%3d&risl=&pid=ImgRaw&r=0" alt="Slytherin" class="nav-icon">
-                Libros
+                Libros 
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center" href="instalaciones.html">
                 <img src="https://logos-world.net/wp-content/uploads/2022/11/Ravenclaw-Symbol.png" alt="Ravenclaw" class="nav-icon">
-                Instalaciones
+                Instalaciones 
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center" href="contacto.html">
                 <img src="https://logos-world.net/wp-content/uploads/2023/08/Hufflepuff-Logo.png" alt="Hufflepuff" class="nav-icon">
-                Contáctanos
+                Contáctanos 
               </a>
             </li>
           </ul>
@@ -116,14 +155,34 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero d-flex align-items-center">
-    <div class="container text-center hero-content">
-      <h2 class="display-4" style="font-family: 'Playfair Display', serif;">Bienvenidos a Hogwarts & Books 🦉</h2>
-      <p class="lead">Descubre un mundo mágico 🪄 de literatura y conocimiento 📚</p>
-      <a href="registro.html" class="btn btn-custom btn-lg">Regístrate ahora</a>
+  <!-- Contenido de Contáctanos -->
+  <div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card-form">
+          <h2 class="text-center mb-4">Contáctanos 💬</h2>
+          <p class="text-center mb-4">¿Tienes alguna duda o sugerencia? ¡Envíanos un mensaje y hablemos! 😊</p>
+          <form action="contacto.php" method="POST">
+            <div class="mb-3">
+              <label for="nombreContacto" class="form-label">Tu nombre: <span>👤</span></label>
+              <input type="text" id="nombreContacto" name="nombreContacto" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="emailContacto" class="form-label">Tu correo electrónico: <span>✉</span></label>
+              <input type="email" id="emailContacto" name="emailContacto" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="mensaje" class="form-label">Mensaje: <span>📝</span></label>
+              <textarea id="mensaje" name="mensaje" rows="5" class="form-control" required></textarea>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-custom">Enviar 🚀</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
 
   <!-- Footer -->
   <footer>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hogwarts & Books - Libros</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&family=MedievalSharp&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    html, body { overflow-x: hidden; }
+    body {
+      background-color: #121212;
+      color: #f1f1f1;
+      font-family: 'Montserrat', sans-serif;
+    }
+    header, .navbar {
+      background: #2C1B0F;
+      min-height: 100px;
+      border-bottom: 2px solid #3A1F0B;
+    }
+    .navbar-brand, .nav-link {
+      font-family: 'Playfair Display', serif;
+      color: #D2B48C !important;
+    }
+    .nav-icon { width: 25px; height: 25px; margin-right: 5px; }
+    .search-results-header {
+      font-family: 'MedievalSharp', serif;
+      color: #9A4C10;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+    }
+    /* Tarjetas de libros: se usa el mismo fondo que la página */
+    .book-card .card {
+      background: #121212;
+      border: none;
+    }
+    /* Ajustamos la imagen para que se muestre completa sin recortes excesivos */
+    .book-card .card-img-top {
+      height: 250px;
+      object-fit: contain;
+    }
+    .book-card .card-title {
+      font-weight: bold;
+      color: #9A4C10; /* Color naranja */
+      text-align: center;
+    }
+    /* Texto y autor en blanco, y "Autor:" en naranja claro */
+    .book-card .card-text,
+    .book-card .card-author {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #ffffff;
+    }
+    .book-card .card-author b {
+      color: #FFA500; /* Naranja clara */
+    }
+    /* Botones con fondo café */
+    .btn-custom {
+      background: #8B4513;
+      color: #f1f1f1;
+      border: none;
+    }
+    .btn-custom:hover { background: #A0522D; }
+    footer {
+      background: #2C1B0F;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.9rem;
+      border-top: 2px solid #3A1F0B;
+      margin-top: 30px;
+    }
+    /* Fondo animado (sin alterar la paleta) */
+    body {
+        background-color: #121212;
+        color: #f1f1f1;
+        font-family: 'Montserrat', sans-serif;
+        /* Imagen de fondo sutil, con opacidad y animación de desplazamiento */
+        background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+        animation: moveBackground 30s linear infinite;
+      }
+      @keyframes moveBackground {
+        from { background-position: 0 0; }
+        to { background-position: 1000px 1000px; }
+      }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Hogwarts & Books</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center" href="masinfo.html">
+                <img src="https://th.bing.com/th/id/R.949bcc9d07186366acede8d82db5522f?rik=A%2fFe4dkZJdCAZg&pid=ImgRaw&r=0" alt="Gryffindor" class="nav-icon">
+                Más info
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center" href="libros.html">
+                <img src="https://th.bing.com/th/id/R.2abc4c00c8a58d759b752abf54bfd14b?rik=h7SrxwN5n9%2fwFw&riu=http%3a%2f%2fvignette1.wikia.nocookie.net%2fharryalbuspotter%2fimages%2f4%2f45%2fSlytherin_by_melisarodriguez-d47ly0k.png%2frevision%2flatest%3fcb%3d20140621170234&ehk=HVLZP9tOwtDLF8%2bN6Oz2wMPdehMFrjiOohCOCduWeew%3d&risl=&pid=ImgRaw&r=0" alt="Slytherin" class="nav-icon">
+                Libros
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center" href="instalaciones.html">
+                <img src="https://logos-world.net/wp-content/uploads/2022/11/Ravenclaw-Symbol.png" alt="Ravenclaw" class="nav-icon">
+                Instalaciones
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center" href="contacto.html">
+                <img src="https://logos-world.net/wp-content/uploads/2023/08/Hufflepuff-Logo.png" alt="Hufflepuff" class="nav-icon">
+                Contáctanos
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+ 
+  <!-- Libros Content -->
+  <div class="container my-5">
+    <h2 class="mb-4 text-center">Nuestros Libros</h2>
+    <!-- Search Form -->
+    <div class="mb-4 d-flex justify-content-center">
+      <input type="text" id="searchInput" class="form-control w-50 me-2" placeholder="Buscar libro...">
+      <button id="searchBtn" class="btn btn-custom">Buscar</button>
+    </div>
+    <div id="searchResultsHeader" class="search-results-header"></div>
+   
+    <!-- Books Grid: se muestran únicamente los libros -->
+    <div class="row" id="bookGrid">
+      <!-- Libro 1 -->
+      <div class="col-md-3 mb-4 book-card">
+        <div class="card h-100">
+          <img src="https://th.bing.com/th/id/R.54d54b9e47b368c2dcbf822968528a1d?rik=ZWfmTXb8pPqdxw&pid=ImgRaw&r=0" class="card-img-top" alt="La Casa de los Espíritus">
+          <div class="card-body">
+            <h5 class="card-title">La Casa de los Espíritus</h5>
+            <p class="card-text">Una saga familiar con elementos sobrenaturales en Chile.</p>
+            <p class="card-author"><b>Autor:</b> Isabel Allende</p>
+          </div>
+        </div>
+      </div>
+      <!-- Libro 2 -->
+      <div class="col-md-3 mb-4 book-card">
+        <div class="card h-100">
+          <img src="https://th.bing.com/th/id/R.938c16d580f65d466de44d9f2ec98732?rik=kqLcyYNhyB9XcQ&pid=ImgRaw&r=0" class="card-img-top" alt="Cien Años de Soledad">
+          <div class="card-body">
+            <h5 class="card-title">Cien Años de Soledad</h5>
+            <p class="card-text">La historia de la familia Buendía en Macondo.</p>
+            <p class="card-author"><b>Autor:</b> Gabriel García Márquez</p>
+          </div>
+        </div>
+      </div>
+      <!-- Libro 3 -->
+      <div class="col-md-3 mb-4 book-card">
+        <div class="card h-100">
+          <img src="https://th.bing.com/th/id/OIP.p2Qht0iMCaSgQb3wbzHukAHaKN?rs=1&pid=ImgDetMain" class="card-img-top" alt="Don Quijote de la Mancha">
+          <div class="card-body">
+            <h5 class="card-title">Don Quijote de la Mancha</h5>
+            <p class="card-text">Las aventuras del hidalgo que sueña con la caballería andante.</p>
+            <p class="card-author"><b>Autor:</b> Miguel de Cervantes</p>
+          </div>
+        </div>
+      </div>
+      <!-- Libro 4 -->
+      <div class="col-md-3 mb-4 book-card">
+        <div class="card h-100">
+          <img src="https://th.bing.com/th/id/OIP.AH51t3XXwwUHzBcgAnRyDQHaLY?rs=1&pid=ImgDetMain" class="card-img-top" alt="El Amor en los Tiempos del Cólera">
+          <div class="card-body">
+            <h5 class="card-title">El Amor en los Tiempos del Cólera</h5>
+            <p class="card-text">Un amor duradero a través de las décadas en el Caribe.</p>
+            <p class="card-author"><b>Autor:</b> Gabriel García Márquez</p>
+          </div>
+        </div>
+      </div>
+      <!-- Libro 5 -->
+      <div class="col-md-3 mb-4 book-card">
+        <div class="card h-100">
+          <img src="https://th.bing.com/th/id/OIP._idAd91_g_NrtKCHOU3NpQAAAA?rs=1&pid=ImgDetMain" class="card-img-top" alt="Pedro Páramo">
+          <div class="card-body">
+            <h5 class="card-title">Pedro Páramo</h5>
+            <p class="card-text">Un joven busca a su padre en un pueblo fantasma mexicano.</p>
+            <p class="card-author"><b>Autor:</b> Juan Rulfo</p>
+          </div>
+        </div>
+      </div>
+      <!-- Libro 6 -->
+      <div class="col-md-3 mb-4 book-card">
+        <div class="card h-100">
+          <img src="https://th.bing.com/th/id/R.84d2ad6787f0eab3d2c35097777f1d41?rik=s5tX1clebD77gQ&pid=ImgRaw&r=0" class="card-img-top" alt="Rayuela">
+          <div class="card-body">
+            <h5 class="card-title">Rayuela</h5>
+            <p class="card-text">Novela experimental que invita a una lectura no lineal.</p>
+            <p class="card-author"><b>Autor:</b> Julio Cortázar</p>
+          </div>
+        </div>
+      </div>
+      <!-- Libro 7 -->
+      <div class="col-md-3 mb-4 book-card">
+        <div class="card h-100">
+          <img src="https://th.bing.com/th/id/R.938c16d580f65d466de44d9f2ec98732?rik=kqLcyYNhyB9XcQ&pid=ImgRaw&r=0" class="card-img-top" alt="La Ciudad y los Perros">
+          <div class="card-body">
+            <h5 class="card-title">La Ciudad y los Perros</h5>
+            <p class="card-text">La vida en un colegio militar en el Perú.</p>
+            <p class="card-author"><b>Autor:</b> Mario Vargas Llosa</p>
+          </div>
+        </div>
+      </div>
+      <!-- Libro 8 -->
+      <div class="col-md-3 mb-4 book-card">
+        <div class="card h-100">
+          <img src="https://th.bing.com/th/id/R.1a5cfca15ff39f234282eb119fd9ee84?rik=iT5fIgNSMrqgdg&riu=http%3a%2f%2f2.bp.blogspot.com%2f-dGgVbVjfd3I%2fWLic0sp9tLI%2fAAAAAAAAHuU%2f3fzfr5883Gs068ZRNGl1HbwRk198uN-IgCK4B%2fs1600%2fla-fiesta-del-chivo.jpg&ehk=J5PI%2fAphwc7z%2bN2XE6bu7oFVw26fCYscXfZRfE1vNN8%3d&risl=&pid=ImgRaw&r=0" class="card-img-top" alt="La Fiesta del Chivo">
+          <div class="card-body">
+            <h5 class="card-title">La Fiesta del Chivo</h5>
+            <p class="card-text">La dictadura de Trujillo en República Dominicana.</p>
+            <p class="card-author"><b>Autor:</b> Mario Vargas Llosa</p>
+          </div>
+        </div>
+      </div>
+      <!-- Libro 9 -->
+      <div class="col-md-3 mb-4 book-card">
+        <div class="card h-100">
+          <img src="https://assets-global.website-files.com/6034d7d1f3e0f52c50b2adee/6254541d8ae4df16d4e69bc8_6034d7d1f3e0f54529b2b1a1_Crimen-y-castigo-fiodor-dostoyevski-editorial-alma.jpeg" class="card-img-top" alt="Crimen y Castigo">
+          <div class="card-body">
+            <h5 class="card-title">Crimen y Castigo</h5>
+            <p class="card-text">Un estudiante lida con la culpa tras cometer un crimen.</p>
+            <p class="card-author"><b>Autor:</b> Fiódor Dostoyevski</p>
+          </div>
+        </div>
+      </div>
+      <!-- Libro 10 -->
+      <div class="col-md-3 mb-4 book-card">
+        <div class="card h-100">
+          <img src="https://th.bing.com/th/id/R.bfae76717b0269eeb79b473202a0c47f?rik=AD6SgLhBk9YufA&riu=http%3a%2f%2f2.bp.blogspot.com%2f-dZTo7vFU5ow%2fVgBoP_cpkgI%2fAAAAAAAAE2g%2fF1BlE189YuQ%2fs1600%2fmadame-bovary.jpg&ehk=JPl4eHVX08x5Tgr%2ffPp4KgNO6vMPfdcJhYyUKwXO%2bhw%3d&risl=&pid=ImgRaw&r=0" class="card-img-top" alt="Madame Bovary">
+          <div class="card-body">
+            <h5 class="card-title">Madame Bovary</h5>
+            <p class="card-text">La insatisfacción de una mujer casada en Francia rural.</p>
+            <p class="card-author"><b>Autor:</b> Gustave Flaubert</p>
+          </div>
+        </div>
+      </div>
+      <!-- Libro 11 -->
+      <div class="col-md-3 mb-4 book-card">
+        <div class="card h-100">
+          <img src="https://th.bing.com/th/id/OIP.i7Co-_uepnqacgo9X7Lp2wHaMI?rs=1&pid=ImgDetMain" class="card-img-top" alt="La Metamorfosis">
+          <div class="card-body">
+            <h5 class="card-title">La Metamorfosis</h5>
+            <p class="card-text">Un hombre despierta convertido en insecto.</p>
+            <p class="card-author"><b>Autor:</b> Franz Kafka</p>
+          </div>
+        </div>
+      </div>
+      <!-- Libro 12 -->
+      <div class="col-md-3 mb-4 book-card">
+        <div class="card h-100">
+          <img src="https://pics.filmaffinity.com/El_nombre_de_la_rosa-932325619-large.jpg" class="card-img-top" alt="El Nombre de la Rosa">
+          <div class="card-body">
+            <h5 class="card-title">El Nombre de la Rosa</h5>
+            <p class="card-text">Un misterio en una abadía medieval.</p>
+            <p class="card-author"><b>Autor:</b> Umberto Eco</p>
+          </div>
+        </div>
+      </div>
+      <!-- Libro 13 -->
+      <div class="col-md-3 mb-4 book-card">
+        <div class="card h-100">
+          <img src="https://th.bing.com/th/id/OIP.c6lMjK5WW7B5coR9RDHUEwHaJ9?rs=1&pid=ImgDetMain" class="card-img-top" alt="Las Mil y Una Noches">
+          <div class="card-body">
+            <h5 class="card-title">Las Mil y Una Noches</h5>
+            <p class="card-text">Cuentos orientales llenos de magia e intriga.</p>
+            <p class="card-author"><b>Autor:</b> Anónimo</p>
+          </div>
+        </div>
+      </div>
+      <!-- Libro 14 -->
+      <div class="col-md-3 mb-4 book-card">
+        <div class="card h-100">
+          <img src="https://th.bing.com/th/id/OIP.vVvlRPaIUFhjugjPJmjiFQHaLF?rs=1&pid=ImgDetMain" class="card-img-top" alt="El Señor de los Anillos: La Comunidad del Anillo">
+          <div class="card-body">
+            <h5 class="card-title">El Señor de los Anillos: La Comunidad del Anillo</h5>
+            <p class="card-text">Héroes buscan destruir el Anillo Único en la Tierra Media.</p>
+            <p class="card-author"><b>Autor:</b> J.R.R. Tolkien</p>
+          </div>
+        </div>
+      </div>
+      <!-- Libro 15 -->
+      <div class="col-md-3 mb-4 book-card">
+        <div class="card h-100">
+          <img src="https://www.estudioenescarlata.com/media/img/portadas/_visd_0001JPG01O5Z.jpg" class="card-img-top" alt="El Hobbit">
+          <div class="card-body">
+            <h5 class="card-title">El Hobbit</h5>
+            <p class="card-text">Bilbo Bolsón se embarca en una aventura con enanos.</p>
+            <p class="card-author"><b>Autor:</b> J.R.R. Tolkien</p>
+          </div>
+        </div>
+      </div>
+      <!-- Libro 16 -->
+      <div class="col-md-3 mb-4 book-card">
+        <div class="card h-100">
+          <img src="https://m.media-amazon.com/images/I/71kxa1-0mfL.jpg" class="card-img-top" alt="1984">
+          <div class="card-body">
+            <h5 class="card-title">1984</h5>
+            <p class="card-text">Distopía sobre un estado totalitario y la manipulación.</p>
+            <p class="card-author"><b>Autor:</b> George Orwell</p>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Botón "Mostrar más" (opcional) -->
+    <div class="text-center">
+      <button id="mostrarMasBtn" class="btn btn-custom">Mostrar más</button>
+    </div>
+  </div>
+ 
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Hogwarts &amp; Books. Creado por Gabriel Vargas y Renata Aneyba. Ubicados en Cochabamba, Bolivia. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+ 
+  <!-- JavaScript para "Mostrar más" y búsqueda -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.book-card');
+      const mostrarMasBtn = document.getElementById('mostrarMasBtn');
+      const searchResultsHeader = document.getElementById('searchResultsHeader');
+      let currentVisible = 4; // Se muestran 4 inicialmente
+ 
+      cards.forEach((card, index) => {
+        if(index >= currentVisible) {
+          card.style.display = 'none';
+        }
+      });
+ 
+      mostrarMasBtn.addEventListener('click', function() {
+        const nextLimit = currentVisible + 8;
+        for(let i = currentVisible; i < nextLimit && i < cards.length; i++){
+          cards[i].style.display = 'block';
+        }
+        currentVisible += 8;
+        if(currentVisible >= cards.length) {
+          mostrarMasBtn.style.display = 'none';
+        }
+      });
+ 
+      // Búsqueda por botón
+      const searchBtn = document.getElementById('searchBtn');
+      searchBtn.addEventListener('click', function(){
+        const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
+        cards.forEach(card => card.style.display = 'none');
+        mostrarMasBtn.style.display = 'none';
+        let found = 0;
+        cards.forEach(card => {
+          let title = card.querySelector('.card-title').textContent.toLowerCase();
+          if(title.includes(searchTerm)){
+            card.style.display = 'block';
+            found++;
+          }
+        });
+        if(found > 0){
+          searchResultsHeader.textContent = `Resultados de la búsqueda "${document.getElementById('searchInput').value.trim()}"...`;
+        } else {
+          searchResultsHeader.textContent = `No se encontró ningún resultado para "${document.getElementById('searchInput').value.trim()}"...`;
+        }
+      });
+    });
+  </script>
+ 
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

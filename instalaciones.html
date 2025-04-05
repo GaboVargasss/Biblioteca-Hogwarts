@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hogwarts & Books - Instalaciones</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&family=MedievalSharp&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    html, body {
+      overflow-x: hidden;
+    }
+    body {
+      background-color: #121212;
+      color: #f1f1f1;
+      font-family: 'Montserrat', sans-serif;
+    }
+    header, .navbar {
+      background: #2C1B0F;
+      min-height: 100px;
+      border-bottom: 2px solid #3A1F0B;
+    }
+    .navbar-brand, .nav-link {
+      font-family: 'Playfair Display', serif;
+      color: #D2B48C !important;
+    }
+    .nav-icon {
+      width: 25px;
+      height: 25px;
+      margin-right: 5px;
+    }
+    /* Ajustes para el carrusel */
+    #bibliotecaCarousel {
+      background-color: #2C1B0F;  /* Fondo siguiendo la paleta */
+      padding: 20px;
+    }
+    .carousel-item img {
+      width: 100%;
+      height: 500px;            /* Se agranda la imagen para que el texto no se corte */
+      object-fit: cover;
+    }
+    .carousel-caption {
+      background: rgba(0, 0, 0, 0.5);  /* Fondo semitransparente para mejorar la legibilidad */
+      padding: 10px;
+      border-radius: 5px;
+    }
+    footer {
+      background: #2C1B0F;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.9rem;
+      border-top: 2px solid #3A1F0B;
+      margin-top: 30px;
+    }
+    /* Fondo animado (sin alterar la paleta) */
+    body {
+        background-color: #121212;
+        color: #f1f1f1;
+        font-family: 'Montserrat', sans-serif;
+        /* Imagen de fondo sutil, con opacidad y animación de desplazamiento */
+        background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+        animation: moveBackground 30s linear infinite;
+      }
+      @keyframes moveBackground {
+        from { background-position: 0 0; }
+        to { background-position: 1000px 1000px; }
+      }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Hogwarts & Books</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center" href="masinfo.html">
+                <img src="https://th.bing.com/th/id/R.949bcc9d07186366acede8d82db5522f?rik=A%2fFe4dkZJdCAZg&pid=ImgRaw&r=0" alt="Gryffindor" class="nav-icon">
+                Más info
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center" href="libros.html">
+                <img src="https://th.bing.com/th/id/R.2abc4c00c8a58d759b752abf54bfd14b?rik=h7SrxwN5n9%2fwFw&riu=http%3a%2f%2fvignette1.wikia.nocookie.net%2fharryalbuspotter%2fimages%2f4%2f45%2fSlytherin_by_melisarodriguez-d47ly0k.png%2frevision%2flatest%3fcb%3d20140621170234&ehk=HVLZP9tOwtDLF8%2bN6Oz2wMPdehMFrjiOohCOCduWeew%3d&risl=&pid=ImgRaw&r=0" alt="Slytherin" class="nav-icon">
+                Libros
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center" href="instalaciones.html">
+                <img src="https://logos-world.net/wp-content/uploads/2022/11/Ravenclaw-Symbol.png" alt="Ravenclaw" class="nav-icon">
+                Instalaciones
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center" href="contacto.html">
+                <img src="https://logos-world.net/wp-content/uploads/2023/08/Hufflepuff-Logo.png" alt="Hufflepuff" class="nav-icon">
+                Contáctanos
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+ 
+  <!-- Instalaciones Content -->
+  <div class="container my-5">
+    <h2 class="text-center mb-4">Nuestras Instalaciones</h2>
+    <p class="text-center mb-4">
+      Conoce cada rincón de nuestro espacio mágico.
+      <a href="contacto.html" class="text-decoration-underline" style="color: #9A4C10;">Ir a Contáctanos</a>
+    </p>
+   
+    <!-- Carrusel con efecto fade -->
+    <div id="bibliotecaCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#bibliotecaCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#bibliotecaCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#bibliotecaCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#bibliotecaCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#bibliotecaCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        <button type="button" data-bs-target="#bibliotecaCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+        <button type="button" data-bs-target="#bibliotecaCarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+      </div>
+      <div class="carousel-inner">
+        <!-- Slide 1: Fachada -->
+        <div class="carousel-item active">
+          <img src="imagenes/fachada.jpg" class="d-block w-100" alt="Fachada de la biblioteca">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Fachada</h5>
+            <p>La imponente entrada de la biblioteca mágica.</p>
+          </div>
+        </div>
+        <!-- Slide 2: Sala de lectura -->
+        <div class="carousel-item">
+          <img src="imagenes/salalectura.jpg" class="d-block w-100" alt="Sala de lectura">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Sala de lectura</h5>
+            <p>Un ambiente tranquilo para sumergirse en la lectura.</p>
+          </div>
+        </div>
+        <!-- Slide 3: Sala de estudio -->
+        <div class="carousel-item">
+          <img src="imagenes/salaestudio.jpg" class="d-block w-100" alt="Sala de estudio">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Sala de estudio</h5>
+            <p>Espacio dedicado al aprendizaje y concentración.</p>
+          </div>
+        </div>
+        <!-- Slide 4: Estantería -->
+        <div class="carousel-item">
+          <img src="imagenes/estanteria.jpg" class="d-block w-100" alt="Estantería de libros">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Estantería</h5>
+            <p>Organización mágica de cientos de libros.</p>
+          </div>
+        </div>
+        <!-- Slide 5: Recepción -->
+        <div class="carousel-item">
+          <img src="imagenes/recepcion.webp" class="d-block w-100" alt="Recepción">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Recepción</h5>
+            <p>El punto de bienvenida a un mundo mágico.</p>
+          </div>
+        </div>
+        <!-- Slide 6: Baños -->
+        <div class="carousel-item">
+          <img src="imagenes/baños.jpg" class="d-block w-100" alt="Baños">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Baños</h5>
+            <p>Espacios cómodos y cuidados para los visitantes.</p>
+          </div>
+        </div>
+        <!-- Slide 7: Jardines -->
+        <div class="carousel-item">
+          <img src="imagenes/jardines.jpg" class="d-block w-100" alt="Jardines">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Jardines</h5>
+            <p>Un oasis de tranquilidad en el mundo mágico.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Controles del carrusel -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#bibliotecaCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(1);"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#bibliotecaCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(1);"></span>
+        <span class="visually-hidden">Siguiente</span>
+      </button>
+    </div>
+  </div>
+ 
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Hogwarts &amp; Books. Creado por Gabriel Vargas y Renata Aneyba. Ubicados en Cochabamba, Bolivia. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+ 
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
